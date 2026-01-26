@@ -15,8 +15,22 @@ root/
 │   └── workflows/          # Meta-workflows (e.g. create-workflow)
 ├── projects/               # SOURCE CODE for all tools/workflows
 │   ├── invitation-maker/
-│   ├── media-processor/
-│   └── ...
+│   │   ├── README.md           # Tool documentation
+│   │   ├── prompt-guide.md     # Development prompts (Phase 1 & 2)
+│   │   ├── workflows/          # AI execution guides (.md)
+│   │   │   └── invitation-maker.md
+│   │   ├── scripts/            # Core logic (Headless Python)
+│   │   │   ├── main_script.py
+│   │   │   ├── config.json
+│   │   │   └── requirements.txt
+│   │   ├── tools/              # GUI Desktop App (PyQt6)
+│   │   │   ├── main.py
+│   │   │   ├── requirements.txt
+│   │   │   └── ToolLauncher.bat
+│   │   └── sample-data/        # Test files
+│   │       ├── input/
+│   │       └── output/
+│   └── ... (other projects)
 ├── packages/               # BUILD ARTIFACTS (Executables & Specs)
 │   ├── ToolName.exe
 │   └── ToolName.spec
