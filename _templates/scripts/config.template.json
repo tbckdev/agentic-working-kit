@@ -1,0 +1,10 @@
+{
+    "input_file": "{{INPUT_FILE}}",
+    "template_file": "{{TEMPLATE_FILE}}",
+    "output_dir": "output",
+    "settings": {
+        "option1": "value1",
+        "option2": 100,
+        "option3": true
+    }
+}

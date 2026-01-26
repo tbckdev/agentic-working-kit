@@ -1,0 +1,14 @@
+{
+    "input_excel": "../sample-data/guests-vi.xlsx",
+    "template_image": "../sample-data/yep-invitation-template.png",
+    "output_dir": "../sample-data/output",
+    "font_settings": {
+        "path": "../sample-data/BeVietnamPro-Regular.ttf",
+        "size": 60,
+        "color": [255, 255, 255]
+    },
+    "text_position": {
+        "y": 320,
+        "center_x": "center"
+    }
+}
