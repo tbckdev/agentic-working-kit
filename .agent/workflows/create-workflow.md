@@ -3,44 +3,43 @@ description: Create a new workflow with complete folder structure and template f
 ---
 
 # Create New Workflow
+Create a new workflow with a complete folder structure and template files, based on available templates.
 
-Tạo workflow mới với đầy đủ cấu trúc folders và files, dựa trên templates có sẵn.
+## ⚠️ Required Inputs - ASK BEFORE PROCEEDING
 
-## ⚠️ Required Inputs - PHẢI HỎI TRƯỚC KHI THỰC HIỆN
+> **STOP!** If you do not have the information below, ASK THE USER immediately.
+> DO NOT guess or skip any input.
 
-> **DỪNG LẠI!** Nếu chưa có đủ thông tin dưới đây, HỎI USER ngay.
-> KHÔNG tự đoán hoặc bỏ qua bất kỳ input nào.
+| #   | Input             | Description                    | Example                                            |
+| --- | ----------------- | ------------------------------ | -------------------------------------------------- |
+| 1   | **workflow_name** | Folder name (kebab-case)       | `image-resizer`                                    |
+| 2   | **title**         | Tool Title                     | `Image Resizer Pro`                                |
+| 3   | **description**   | Short description (1 sentence) | `Batch resize images to specific dimensions`       |
+| 4   | **pain_point**    | Problem needed to solve        | `Manually resizing hundreds of images takes hours` |
+| 5   | **solution**      | Tool solution provided         | `Smart batch resize with progress tracking`        |
+| 6   | **input_files**   | Input required from user       | `Folder containing images, config file`            |
+| 7   | **output_files**  | Tool output                    | `Resized images in output folder`                  |
+| 8   | **key_features**  | 3-4 key features               | `Smart resize, Batch processing, Progress bar`     |
 
-| #   | Input             | Mô tả                   | Ví dụ                                              |
-| --- | ----------------- | ----------------------- | -------------------------------------------------- |
-| 1   | **workflow_name** | Tên folder (kebab-case) | `image-resizer`                                    |
-| 2   | **title**         | Tiêu đề tool            | `Image Resizer Pro`                                |
-| 3   | **description**   | Mô tả ngắn (1 câu)      | `Batch resize images to specific dimensions`       |
-| 4   | **pain_point**    | Vấn đề cần giải quyết   | `Manually resizing hundreds of images takes hours` |
-| 5   | **solution**      | Giải pháp tool cung cấp | `Smart batch resize with progress tracking`        |
-| 6   | **input_files**   | User cần cung cấp gì    | `Folder chứa ảnh, file config`                     |
-| 7   | **output_files**  | Tool tạo ra gì          | `Ảnh đã resize trong folder output`                |
-| 8   | **key_features**  | 3-4 tính năng chính     | `Smart resize, Batch processing, Progress bar`     |
-
-**Câu hỏi mẫu:**
+**Sample Question:**
 ```
-Để tạo workflow mới, tôi cần các thông tin sau:
+To create a new workflow, I need the following information:
 
-1. Tên workflow (kebab-case, ví dụ: image-resizer)?
-2. Tiêu đề hiển thị (ví dụ: Image Resizer Pro)?
-3. Mô tả ngắn về tool này làm gì?
-4. Vấn đề/pain point mà tool giải quyết?
-5. Giải pháp tool cung cấp?
-6. Input files user cần cung cấp?
-7. Output files tool sẽ tạo ra?
-8. 3-4 key features chính?
+1. Workflow name (kebab-case, e.g., image-resizer)?
+2. Display Title (e.g., Image Resizer Pro)?
+3. Short description of what this tool does?
+4. Problem/pain point this tool solves?
+5. Solution the tool provides?
+6. Input files the user needs to provide?
+7. Output files the tool will create?
+8. 3-4 Key features?
 ```
 
 ---
 
 ## Execution Steps
 
-### Step 1: Tạo cấu trúc folder
+### Step 1: Create Folder Structure
 // turbo
 ```bash
 mkdir -p projects/{workflow_name}/scripts
@@ -50,9 +49,9 @@ mkdir -p projects/{workflow_name}/sample-data/input
 mkdir -p projects/{workflow_name}/sample-data/output
 ```
 
-### Step 2: Tạo README.md
+### Step 2: Create README.md
 
-Tạo file `projects/{workflow_name}/README.md` với nội dung:
+Create file `projects/{workflow_name}/README.md` with content:
 ```markdown
 # {title}
 
@@ -95,40 +94,40 @@ Follow the prompts in `prompt-guide.md` or use the workflow in `workflows/{workf
 MIT License
 ```
 
-### Step 3: Tạo prompt-guide.md
+### Step 3: Create prompt-guide.md
 
-Tạo file `projects/{workflow_name}/prompt-guide.md` với 2 phases:
+Create file `projects/{workflow_name}/prompt-guide.md` with 2 phases:
 - **Phase 1**: Core logic script prompt
 - **Phase 2**: GUI desktop app prompt (PyQt6)
 
-### Step 4: Tạo workflow execution file
+### Step 4: Create Workflow Execution File
 
-Tạo file `projects/{workflow_name}/workflows/{workflow_name}.md` với:
+Create file `projects/{workflow_name}/workflows/{workflow_name}.md` with:
 - YAML frontmatter (description)
 - Required inputs table
 - Step-by-step execution commands
 - Expected output
 - Error handling table
 
-### Step 5: Tạo scripts folder
+### Step 5: Create Scripts Folder
 
-Tạo các file trong `projects/{workflow_name}/scripts/`:
+Create files in `projects/{workflow_name}/scripts/`:
 - `config.json` - Configuration template
 - `requirements.txt` - Python dependencies
-- `main_script.py` - Core logic script (implement theo Phase 1 prompt)
+- `main_script.py` - Core logic script (implement according to Phase 1 prompt)
 
-### Step 6: Tạo tools folder
+### Step 6: Create Tools Folder
 
-Tạo các file trong `projects/{workflow_name}/tools/`:
-- `main.py` - PyQt6 GUI app (implement theo Phase 2 prompt)
+Create files in `projects/{workflow_name}/tools/`:
+- `main.py` - PyQt6 GUI app (implement according to Phase 2 prompt)
 - `requirements.txt` - GUI dependencies
 - `{AppName}.bat` - Windows launcher
 - `{AppName}.command` - macOS launcher
 - `README.md` - Tool documentation
 
-### Step 7: Tạo sample-data
+### Step 7: Create Sample Data
 
-Tạo `projects/{workflow_name}/sample-data/README.md` mô tả:
+Create `projects/{workflow_name}/sample-data/README.md` describing:
 - Input folder structure
 - Output folder structure
 - Sample files needed

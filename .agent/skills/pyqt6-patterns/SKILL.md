@@ -5,17 +5,17 @@ description: Best practices and patterns for building robust PyQt6 desktop appli
 
 # PyQt6 Patterns Skill
 
-Hướng dẫn xây dựng ứng dụng Desktop với PyQt6, tập trung vào kiến trúc, threading, và trải nghiệm người dùng.
+Guide for building Desktop applications with PyQt6, focusing on architecture, threading, and user experience.
 
 ## 🏗️ Architecture Pattern
 
-Sử dụng mô hình tách biệt UI và Logic:
+Use a model that separates UI and Logic:
 
-1.  **MainWindow**: Quản lý UI, Layout, Signals.
-2.  **Worker Thread (QThread)**: Xử lý long-running tasks (IO, Network, Heavy computation).
-3.  **Core Logic**: Functions thuần Python, độc lập với GUI.
+1.  **MainWindow**: Manages UI, Layout, Signals.
+2.  **Worker Thread (QThread)**: Handles long-running tasks (IO, Network, Heavy computation).
+3.  **Core Logic**: Pure Python functions, independent of GUI.
 
-### Ví dụ cấu trúc `main.py`
+### Example Structure `main.py`
 ```python
 # Imports
 from PyQt6.QtWidgets import ...
@@ -51,26 +51,26 @@ class MainWindow(QMainWindow):
 
 ## 🧵 Threading (Critical)
 
-**Quy tắc bất di bất dịch:** KHÔNG BAO GIỜ chạy heavy task trên Main Thread.
+**Inviolable Rule:** NEVER run heavy tasks on the Main Thread.
 
-### Tại sao?
-- Chặn Main Thread -> UI bị đơ (Not Responsings).
-- Trên macOS: Gây hiện tượng "Beachball of death".
+### Why?
+- Blocks Main Thread -> UI freezes (Not Responding).
+- On macOS: Causes "Beachball of death".
 
-### Pattern chuẩn
-Sử dụng `QThread`:
-1. Tạo class kế thừa `QThread`.
-2. Định nghĩa Signals (`pyqtSignal`) để giao tiếp ngược lại Main Thread.
-3. Override hàm `run()`.
-4. Khởi tạo và giữ reference đến thread (`self.thread`) trong MainWindow.
-5. Kết nối signals và gọi `start()`.
+### Standard Pattern
+Use `QThread`:
+1. Create a class inheriting from `QThread`.
+2. Define Signals (`pyqtSignal`) to communicate back to Main Thread.
+3. Override `run()` method.
+4. Initialize and keep reference to thread (`self.thread`) in MainWindow.
+5. Connect signals and call `start()`.
 
 ---
 
 ## 🎨 UI & Layouts
 
 ### Layout Hierarchy
-Luôn sử dụng Layouts để UI responsive:
+Always use Layouts for responsive UI:
 ```
 QMainWindow
 └── CentralWidget (QWidget)
@@ -84,7 +84,7 @@ QMainWindow
 ```
 
 ### Styles
-Sử dụng Fusion style cho clean look cross-platform:
+Use Fusion style for a clean cross-platform look:
 ```python
 app = QApplication(sys.argv)
 app.setStyle("Fusion")
@@ -95,7 +95,7 @@ app.setStyle("Fusion")
 ## ⚠️ Error Handling
 
 ### Pattern: Try-Except-Signal
-Trong Worker Thread, luông dùng try-except và emit signal error:
+In Worker Thread, always use try-except and emit error signal:
 
 ```python
 def run(self):
@@ -103,10 +103,10 @@ def run(self):
         # Dangerous code
         do_work()
     except Exception as e:
-        self.error.emit(str(e)) # Gửi lỗi về UI
-```
+        self.error.emit(str(e)) # Send error to UI
+    ```
 
-Trong UI, lắng nghe signal và hiển thị MessageBox:
+In UI, listen for signal and show MessageBox:
 ```python
 def on_error(self, message):
     self.btn_start.setEnabled(True) # Re-enable UI
@@ -117,7 +117,7 @@ def on_error(self, message):
 
 ## 📝 Widget Common Patterns
 
-### File Booking
+### File Browsing
 ```python
 path = QFileDialog.getExistingDirectory(self, "Select Folder")
 if path:
@@ -127,10 +127,10 @@ if path:
 
 ### Progress Bar
 - **Unknown duration**: `progressBar.setRange(0, 0)`
-- **Known duration**: `emit(percent)` từ thread -> `progressBar.setValue(percent)`
+- **Known duration**: `emit(percent)` from thread -> `progressBar.setValue(percent)`
 
 ### Logs Display
-Sử dụng `QTextEdit` readonly để hiển thị logs realtime:
+Use `QTextEdit` readonly to display realtime logs:
 ```python
 self.log_text = QTextEdit()
 self.log_text.setReadOnly(True)
@@ -141,8 +141,8 @@ self.log_text.append(message)
 ---
 
 ## ✅ Best Practices Checklist
-- [ ] Luôn dùng QThread cho tasks mất > 0.1s
-- [ ] Xử lý Exception trong thread và báo về UI
-- [ ] Disable nút Start khi đang chạy
-- [ ] Cấu trúc code rõ ràng (Imports -> Thread -> Window -> Main)
-- [ ] Sử dụng Type Hinting cho code dễ đọc
+- [ ] Always using QThread for tasks taking > 0.1s
+- [ ] Handling Exceptions in thread and reporting to UI
+- [ ] Disabling Start button while running
+- [ ] Clear code structure (Imports -> Thread -> Window -> Main)
+- [ ] Using Type Hinting for readable code
