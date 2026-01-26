@@ -18,7 +18,6 @@ This repository provides ready-to-use "kits" that allow you to work agentically 
 | **[invitation-maker](./projects/invitation-maker)** | Bulk invitation generator | • Generate 1000+ personalized image invitations from Excel<br>• Custom font support<br>• QR code integration                                |
 | **[media-processor](./projects/media-processor)**   | Batch image processor     | • Smart resize with padding (no cropping)<br>• Watermark with auto-scaling<br>• Process thousands of images in seconds                      |
 | **[excel-merge](./projects/excel-merge)**           | Excel consolidation tool  | • Merge hundreds of Excel files into one Master report<br>• Traceability (Source_File column)<br>• Handle locked/corrupted files gracefully |
-| **[/create-workflow](./.agent/workflows)**          | Workflow Generator        | • Agent command to rapidly scaffold new tools<br>• Enforces consistent structure<br>• Generates `README`, `scripts`, and `GUI` templates    |
 
 ## 🛠️ Usage Guide
 
