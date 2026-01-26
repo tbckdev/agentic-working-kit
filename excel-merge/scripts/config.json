@@ -1,0 +1,8 @@
+{
+    "input_dir": "../sample-data/input",
+    "output_file": "../sample-data/output/Master_Report.xlsx",
+    "encoding": "utf-8",
+    "skip_temp_files": true,
+    "add_source_column": true,
+    "add_row_index": true
+}
