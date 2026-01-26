@@ -49,14 +49,14 @@ projects/tool-name/
 └── sample-data/        # Test files
 ```
 
-## 🧠 Skills & Knowledge Base
+## 📝 Changelog
 
-This repo is equipped with "Skills" that AI Agents can learn from:
+Latest updates (see [CHANGELOG.md](./CHANGELOG.md) for full history):
 
-- **[git-workflow](./.agent/skills/git-workflow)**: Standard commit conventions and branching.
-- **[pyqt6-patterns](./.agent/skills/pyqt6-patterns)**: Best practices for building GUI apps (Threading, Signals).
-- **[python-packaging](./.agent/skills/python-packaging)**: Expert guide on creating `.exe` and `.app` files.
-- **[excel-processing](./.agent/skills/excel-processing)**: Robust patterns for handling Excel data.
+- **[v1.0.0]** - Initial Release (2026-01-26)
+  - Added **invitation-maker**: Bulk personalized invitations with QR codes.
+  - Added **media-processor**: Smart batch resize and watermark tool.
+  - Added **excel-merge**: Consolidate Excel files with traceability.
 
 ## 🤝 Contributing
 
