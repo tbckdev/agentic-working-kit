@@ -43,16 +43,16 @@ Tạo workflow mới với đầy đủ cấu trúc folders và files, dựa tr�
 ### Step 1: Tạo cấu trúc folder
 // turbo
 ```bash
-mkdir -p {workflow_name}/scripts
-mkdir -p {workflow_name}/tools
-mkdir -p {workflow_name}/workflows
-mkdir -p {workflow_name}/sample-data/input
-mkdir -p {workflow_name}/sample-data/output
+mkdir -p projects/{workflow_name}/scripts
+mkdir -p projects/{workflow_name}/tools
+mkdir -p projects/{workflow_name}/workflows
+mkdir -p projects/{workflow_name}/sample-data/input
+mkdir -p projects/{workflow_name}/sample-data/output
 ```
 
 ### Step 2: Tạo README.md
 
-Tạo file `{workflow_name}/README.md` với nội dung:
+Tạo file `projects/{workflow_name}/README.md` với nội dung:
 ```markdown
 # {title}
 
@@ -97,13 +97,13 @@ MIT License
 
 ### Step 3: Tạo prompt-guide.md
 
-Tạo file `{workflow_name}/prompt-guide.md` với 2 phases:
+Tạo file `projects/{workflow_name}/prompt-guide.md` với 2 phases:
 - **Phase 1**: Core logic script prompt
 - **Phase 2**: GUI desktop app prompt (PyQt6)
 
 ### Step 4: Tạo workflow execution file
 
-Tạo file `{workflow_name}/workflows/{workflow_name}.md` với:
+Tạo file `projects/{workflow_name}/workflows/{workflow_name}.md` với:
 - YAML frontmatter (description)
 - Required inputs table
 - Step-by-step execution commands
@@ -112,14 +112,14 @@ Tạo file `{workflow_name}/workflows/{workflow_name}.md` với:
 
 ### Step 5: Tạo scripts folder
 
-Tạo các file trong `{workflow_name}/scripts/`:
+Tạo các file trong `projects/{workflow_name}/scripts/`:
 - `config.json` - Configuration template
 - `requirements.txt` - Python dependencies
 - `main_script.py` - Core logic script (implement theo Phase 1 prompt)
 
 ### Step 6: Tạo tools folder
 
-Tạo các file trong `{workflow_name}/tools/`:
+Tạo các file trong `projects/{workflow_name}/tools/`:
 - `main.py` - PyQt6 GUI app (implement theo Phase 2 prompt)
 - `requirements.txt` - GUI dependencies
 - `{AppName}.bat` - Windows launcher
@@ -128,7 +128,7 @@ Tạo các file trong `{workflow_name}/tools/`:
 
 ### Step 7: Tạo sample-data
 
-Tạo `{workflow_name}/sample-data/README.md` mô tả:
+Tạo `projects/{workflow_name}/sample-data/README.md` mô tả:
 - Input folder structure
 - Output folder structure
 - Sample files needed
@@ -136,10 +136,10 @@ Tạo `{workflow_name}/sample-data/README.md` mô tả:
 ### Step 8: Verify
 // turbo
 ```bash
-ls -la {workflow_name}/
-ls -la {workflow_name}/scripts/
-ls -la {workflow_name}/tools/
-ls -la {workflow_name}/workflows/
+ls -la projects/{workflow_name}/
+ls -la projects/{workflow_name}/scripts/
+ls -la projects/{workflow_name}/tools/
+ls -la projects/{workflow_name}/workflows/
 ```
 
 ---
@@ -147,7 +147,7 @@ ls -la {workflow_name}/workflows/
 ## Output Structure
 
 ```
-{workflow_name}/
+projects/{workflow_name}/
 ├── README.md
 ├── prompt-guide.md
 ├── workflows/

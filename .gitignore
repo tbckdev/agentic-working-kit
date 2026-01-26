@@ -18,6 +18,11 @@ dist/
 *.app
 *.dmg
 
+# Build Artifacts
+packages/*
+!packages/.gitkeep
+
+
 # IDE
 .idea/
 .vscode/
@@ -47,3 +52,6 @@ desktop.ini
 
 # Reference files (not for distribution)
 ref/
+
+# Package build files
+packages/
