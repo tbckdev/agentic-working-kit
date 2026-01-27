@@ -131,3 +131,29 @@ pillow
 - [ ] Run correct build command for OS
 - [ ] Test output file in `dist/` directory
 - [ ] Check virus scan (for Windows)
+
+---
+
+## 🤖 Agentic Protocol
+
+### Skill Metadata
+- **Version**: 1.0.0
+- **Last Updated**: 2026-01-27
+
+### 1. Activation Log
+When activating this skill, print:
+"🎯 [SKILL ACTIVATED] python-packaging v1.0.0"
+"📋 Parameters:"
+"   - Target: [script.py]"
+"   - Mode: [onefile|onedir]"
+"   - OS: [Windows|macOS]"
+"   - Assets: [list_of_included_assets]"
+
+### 2. User Confirmation
+Before running the build command (long process):
+"I'm about to package [Target] using PyInstaller with options: [Options]. This may take a few minutes. Proceed?"
+
+### 3. Completion Log
+- Success: "✅ [python-packaging] Build complete. Artifact: dist/[filename]"
+- Error: "❌ [python-packaging] Build failed. Check logs."
+

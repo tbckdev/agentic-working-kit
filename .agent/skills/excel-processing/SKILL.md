@@ -117,3 +117,29 @@ if not all(col in df.columns for col in required):
 - [ ] Handle `PermissionError` (File locked)
 - [ ] Handle `UnicodeDecodeError` (Encoding)
 - [ ] Check `df.empty` before processing
+
+---
+
+## 🤖 Agentic Protocol
+
+### Skill Metadata
+- **Version**: 1.0.0
+- **Last Updated**: 2026-01-27
+
+### 1. Activation Log
+When activating this skill, print:
+"🎯 [SKILL ACTIVATED] excel-processing v1.0.0"
+"📋 Parameters:"
+"   - Input: [file_path]"
+"   - Operation: [read|write|validate]"
+"   - Expected Rows: [count_if_known]"
+
+### 2. User Confirmation
+Before writing/modifying files:
+"I'll use excel-processing to [action] on [file]. Proceed? [Y/n]"
+
+### 3. Completion Log
+- Success: "✅ [excel-processing] Processed [row_count] rows in [time]s"
+- Error: "❌ [excel-processing] Error: [message]"
+- Warning: "⚠️ [excel-processing] Warning: [message]"
+

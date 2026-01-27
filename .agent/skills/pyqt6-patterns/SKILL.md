@@ -146,3 +146,27 @@ self.log_text.append(message)
 - [ ] Disabling Start button while running
 - [ ] Clear code structure (Imports -> Thread -> Window -> Main)
 - [ ] Using Type Hinting for readable code
+
+---
+
+## 🤖 Agentic Protocol
+
+### Skill Metadata
+- **Version**: 1.0.0
+- **Last Updated**: 2026-01-27
+
+### 1. Activation Log
+When activating this skill (generating code), print:
+"🎯 [SKILL ACTIVATED] pyqt6-patterns v1.0.0"
+"📋 Parameters:"
+"   - Component: [MainWindow|WorkerThread|Dialog]"
+"   - Pattern Applied: [Threading|Layout|Signal-Slot]"
+
+### 2. User Confirmation
+Before applying major architectural changes:
+"I'm implementing the [Pattern Name] pattern for [Component]. This will structure the code as [Description]. Proceed?"
+
+### 3. Completion Log
+- Success: "✅ [pyqt6-patterns] Implementation ready. Validated imports and signals."
+- Warning: "⚠️ [pyqt6-patterns] Note: Ensure [dependency] is installed."
+

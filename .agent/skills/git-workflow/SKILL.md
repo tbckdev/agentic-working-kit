@@ -258,3 +258,28 @@ When Antigravity performs git operations, it will:
 ### Clarification Needed Examples:
 - "Undo commit" → "Has the commit been pushed? If no use reset, if yes use revert"
 - "Reset all" → "Do you want soft reset (keep changes) or hard reset (lose changes)?"
+
+---
+
+## 🤖 Agentic Protocol
+
+### Skill Metadata
+- **Version**: 1.0.0
+- **Last Updated**: 2026-01-27
+
+### 1. Activation Log
+When activating this skill, print:
+"🎯 [SKILL ACTIVATED] git-workflow v1.0.0"
+"📋 Parameters:"
+"   - Action: [commit|push|pull|rebase]"
+"   - Branch: [branch_name]"
+"   - Message: [commit_message_preview]"
+
+### 2. User Confirmation
+Before pushing or destructive actions:
+"I'll execute 'git [command]' on branch '[branch]'. Proceed? [Y/n]"
+
+### 3. Completion Log
+- Success: "✅ [git-workflow] Git operation successful. Hash: [short_hash]"
+- Error: "❌ [git-workflow] Git Error: [output_tail]"
+
